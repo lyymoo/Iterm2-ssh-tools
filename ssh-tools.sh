@@ -1,4 +1,9 @@
 #/bin/bash
+# usage:
+# 机器类型范围值：0 直接连接机器，1. 跳板机  2.目标机
+# ssh中的用户名以及IP(设置端口，非必填)、密码、自定义名称
+# eg:0 username@ip [:port] password Tag
+
 echo 请选择你的机器列表
 # define BASE PATH
 BASE_PATH=$(dirname "$0")
