@@ -123,6 +123,12 @@ case "$type" in
        ;;
     *)
        #其它输入
-       echo "output error,please input 1/2/vi/ls/eg"
+       echo -e "ssh tools <https://github.com/lyymoo/Iterm2-ssh-tools>\n"
+       echo -e "用例: ssh-tools <command>\n其中<command>为:"
+       echo "  1 直接连接"
+       echo "  2 跳板连接"
+       echo "  vi 编辑主机列表"
+       echo "  ls 查看主机列表"
+       echo "  eg 主机列表填写示例"
        ;;
 esac
