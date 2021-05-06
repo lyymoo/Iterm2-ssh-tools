@@ -1,12 +1,14 @@
-#/bin/bash
+#!/bin/bash
+# require:
+# sudo apt-get install tcl tk expect vim openssh-client
 # usage:
 # 机器类型范围值：0 直接连接机器，1. 跳板机  2.目标机
 # ssh中的用户名以及IP(设置端口，非必填)、密码、自定义名称
-# eg:0 username@ip [:port] password Tag
+# eg:0 username@ip[:port] password Tag
 
-echo 请选择你的机器列表
 # define BASE PATH
 BASE_PATH=$(dirname "$0")
+# BASE_PATH=/usr/local/Iterm2-ssh-tools
 # 定义数据相关的文件
 DATA_FILE=$BASE_PATH/data/ssh.txt
 # 定义执行ssh的文件
@@ -103,14 +105,24 @@ else
 fi
 case "$type" in
     "1")
+       echo "请选择你的机器列表"
        direct 
        ;;
     "2")
+       echo "请选择你的机器列表"
        step 
+       ;;
+    "vi")
+       vim $DATA_FILE
+       ;;
+    "ls")
+       cat $DATA_FILE
+       ;;
+    "eg")
+       echo "示例: 0直连|1跳板|2目标 username@ip[:port] password Tag"
        ;;
     *)
        #其它输入
-       echo "output error,please input 1/2/2"
+       echo "output error,please input 1/2/vi/ls/eg"
        ;;
 esac
-
